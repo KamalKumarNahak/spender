@@ -1,0 +1,201 @@
+/* Landing-page hero */
+.hero {
+    background: #fff;
+    display: block;
+    max-width: none;
+    margin: 0;
+    padding: 1.3rem 2rem 4.8rem;
+    text-align: center;
+}
+
+.hero-inner {
+    width: min(100%, 1,000px);
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0 0 3.1rem;
+    padding: 0.34rem 1.4rem;
+    border: 1px solid #9de3ce;
+    border-radius: 999px;
+    background: #e7f8f3;
+    color: #04765b;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 1.3;
+    text-transform: none;
+}
+
+.hero-badge span {
+    width: 0.62rem;
+    height: 0.62rem;
+    border-radius: 50%;
+    background: #18a883;
+}
+
+.hero-title {
+    margin: 0 0 2rem;
+    color: #111;
+    font-family: var(--font-body);
+    font-size: clamp(3rem, 5vw, 4.6rem);
+    font-weight: 600;
+    letter-spacing: -0.064em;
+    line-height: 1.03;
+}
+
+.hero-title strong {
+    color: #1aa77c;
+    font-weight: inherit;
+}
+
+.hero-subtitle {
+    max-width: none;
+    margin: 0 0 3.1rem;
+    color: #696969;
+    font-size: clamp(1.1rem, 2vw, 1.48rem);
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.hero-actions {
+    justify-content: center;
+    gap: 1.25rem;
+    margin-bottom: 4.6rem;
+}
+
+.hero .btn-primary,
+.hero .btn-ghost {
+    min-width: 19rem;
+    padding: 0.88rem 1.4rem;
+    border: 0;
+    border-radius: 1rem;
+    background: #111;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.hero .btn-primary:hover,
+.hero .btn-ghost:hover {
+    background: #252525;
+    color: #fff;
+}
+
+.hero-dashboard {
+    position: relative;
+    padding: 4.25rem 1.7rem 1.7rem;
+    overflow: hidden;
+    border: 1px solid #e1dfd9;
+    border-radius: 1.35rem;
+    background: #fafaf8;
+    text-align: left;
+}
+
+.dashboard-dots {
+    position: absolute;
+    top: 1.65rem;
+    left: 1.7rem;
+    display: flex;
+    gap: 0.56rem;
+}
+
+.dashboard-dots i {
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 50%;
+    background: #f08e91;
+}
+
+.dashboard-dots i:nth-child(2) { background: #f6bd64; }
+.dashboard-dots i:nth-child(3) { background: #91dbc9; }
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.dashboard-stat,
+.spending-bars {
+    border: 1px solid #e3e1db;
+    border-radius: 1rem;
+    background: #fff;
+}
+
+.dashboard-stat { padding: 1.2rem 1.35rem 1.15rem; }
+
+.dashboard-stat span,
+.dashboard-stat small {
+    display: block;
+    color: #969696;
+    font-size: 0.92rem;
+    line-height: 1.35;
+}
+
+.dashboard-stat strong {
+    display: block;
+    margin: 0.5rem 0 0.35rem;
+    color: #141414;
+    font-size: 1.85rem;
+    font-weight: 600;
+    letter-spacing: -0.045em;
+    line-height: 1;
+}
+
+.dashboard-stat .stat-negative { color: #ec4040; }
+.dashboard-stat .stat-positive { color: #0ba276; }
+
+.spending-bars { padding: 1.15rem 2.1rem; }
+
+.spending-row {
+    display: grid;
+    grid-template-columns: 5.2rem 1fr;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.spending-row + .spending-row { margin-top: 0.75rem; }
+
+.spending-row span {
+    color: #616161;
+    font-size: 1rem;
+    text-align: right;
+}
+
+.spending-row > div {
+    height: 0.75rem;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #efede7;
+}
+
+.spending-row i {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+}
+
+.spending-row .food { width: 72%; background: #fa9d19; }
+.spending-row .travel { width: 48%; background: #398add; }
+.spending-row .bills { width: 38%; background: #7e72df; }
+
+@media (max-width: 700px) {
+    .hero { padding: 2rem 1rem 3rem; }
+    .hero-badge { margin-bottom: 2rem; font-size: 0.9rem; }
+    .hero-title { font-size: clamp(2.55rem, 11vw, 4rem); }
+    .hero-subtitle br { display: none; }
+    .hero-actions { flex-direction: column; margin-bottom: 3rem; }
+    .hero .btn-primary, .hero .btn-ghost { width: min(100%, 19rem); }
+    .hero-dashboard { padding: 3.7rem 0.8rem 0.8rem; border-radius: 1rem; }
+    .dashboard-dots { top: 1.45rem; left: 1.25rem; }
+    .dashboard-stats { grid-template-columns: 1fr; }
+    .dashboard-stat { padding: 1rem; }
+    .spending-bars { padding: 1rem; }
+    .spending-row { grid-template-columns: 4rem 1fr; }
+}
