@@ -15,7 +15,7 @@
         <p class="hero-subtitle">Spendly helps you log expenses, spot patterns, and stay<br>on budget — without the spreadsheet headache.</p>
         <div class="hero-actions">
             <a href="{{ url_for('register') }}" class="btn-primary">Create free account</a>
-            <a href="{{ url_for('login') }}" class="btn-ghost">See how it works</a>
+            <button type="button" class="btn-ghost" id="how-it-works-button" aria-haspopup="dialog" aria-controls="how-it-works-modal">See how it works</button>
         </div>
 
         <div class="hero-dashboard" aria-label="Example spending dashboard">
@@ -46,6 +46,14 @@
     </div>
 </section>
 
+<div class="video-modal" id="how-it-works-modal" role="dialog" aria-modal="true" aria-labelledby="how-it-works-title" hidden>
+    <div class="video-modal__content">
+        <button type="button" class="video-modal__close" aria-label="Close video">&times;</button>
+        <h2 id="how-it-works-title" class="video-modal__title">See how Spendly works</h2>
+        <iframe class="video-modal__video" title="Spendly product overview" data-src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+</div>
+
 <section class="features">
     <div class="features-inner">
         <div class="feature-card">
@@ -74,4 +82,37 @@
     </div>
 </section>
 
+{% endblock %}
+
+{% block scripts %}
+<script>
+    (() => {
+        const trigger = document.getElementById('how-it-works-button');
+        const modal = document.getElementById('how-it-works-modal');
+        const closeButton = modal.querySelector('.video-modal__close');
+        const video = modal.querySelector('.video-modal__video');
+
+        function closeModal() {
+            modal.hidden = true;
+            video.removeAttribute('src');
+            trigger.focus();
+        }
+
+        trigger.addEventListener('click', () => {
+            video.src = video.dataset.src;
+            modal.hidden = false;
+            closeButton.focus();
+        });
+
+        closeButton.addEventListener('click', closeModal);
+
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) closeModal();
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && !modal.hidden) closeModal();
+        });
+    })();
+</script>
 {% endblock %}

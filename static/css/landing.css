@@ -185,6 +185,54 @@
 .spending-row .travel { width: 48%; background: #398add; }
 .spending-row .bills { width: 38%; background: #7e72df; }
 
+.video-modal[hidden] { display: none; }
+
+.video-modal {
+    position: fixed;
+    z-index: 200;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.video-modal__content {
+    position: relative;
+    width: min(100%, 900px);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background: #fff;
+}
+
+.video-modal__title {
+    margin: 0 2.5rem 1rem 0;
+    color: #111;
+    font-size: 1.25rem;
+}
+
+.video-modal__close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 2rem;
+    height: 2rem;
+    border: 0;
+    border-radius: 50%;
+    background: #f0f0f0;
+    color: #111;
+    cursor: pointer;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.video-modal__video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+}
+
 @media (max-width: 700px) {
     .hero { padding: 2rem 1rem 3rem; }
     .hero-badge { margin-bottom: 2rem; font-size: 0.9rem; }
