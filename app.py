@@ -1,6 +1,13 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, g
+
+from database.db import get_db, init_db, close_db
 
 app = Flask(__name__)
+
+app.teardown_appcontext(close_db)
+
+with app.app_context():
+    init_db()
 
 
 # ------------------------------------------------------------------ #
